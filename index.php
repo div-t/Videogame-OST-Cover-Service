@@ -1,6 +1,7 @@
 <?php
 require_once('Seeder.php');
 
+
 $var = Seeder::getData();
 
 if (isset($_GET['format'])) {
@@ -14,15 +15,15 @@ if (isset($_GET['format'])) {
 }
 
 if (isset($_GET['OSTID']) && isset($_GET['ALL'])) {
-    echo 'Fatal Error: <br> Both GET Paramters are set. You might try to use only one GET Parameter';
+    echo 'Fatal Error: Both Parameters are set. You might try to use only one GET Parameter';
 } else if (isset($_GET['OSTID'])) {
     echo json_encode($var[$_GET['OSTID']]);
 } else if (isset($_GET['ALL'])) {
     if ($_GET['ALL'] == 'true') {
         echo json_encode($var);
     } else {
-        echo 'Fatal Error: <br> The GET Parameters might not be correct';
+        echo 'Fatal Error: false is not an option - you can only use this parameter for showing all OSTs';
     }
 } else {
-    echo 'Fatal Error: <br> The GET Parameters might not be correct';
+    echo 'Fatal Error: None of the needed Parameters is set - please do so!';
 }
