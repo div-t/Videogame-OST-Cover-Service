@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteRule ^all/([\w\.-]+)$ index.php?ALL=true&format=$1 [NC]
+RewriteRule ^ost*(\d+)/([\w\.-]+)$ index.php?OSTID=$1&format=$2 [NC]
